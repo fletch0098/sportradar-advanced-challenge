@@ -27,6 +27,11 @@
   },
   "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.30.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
   }
 }
