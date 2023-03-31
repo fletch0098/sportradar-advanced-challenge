@@ -1,5 +1,14 @@
 // index.js - sportradar-advanced-challenge
 
-// Trace logging
-console.log("sportradar-advanced-challenge: start")
-console.log("sportradar-advanced-challenge: end")
+// Imports
+require('dotenv').config()
+
+// App
+const app = () => {
+  // Trace logging
+  console.log(`${process.env.APP_NAME}: Start`);
+  console.log(`${process.env.APP_NAME}: End`);
+};
+
+// Start the app
+app();
