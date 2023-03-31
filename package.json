@@ -4,7 +4,7 @@
   "description": "Data Pipeline using NHL Data",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "test"
   },
   "repository": {
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/fletch0098/sportradar-advanced-challenge/issues"
   },
-  "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme"
+  "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
 }
