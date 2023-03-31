@@ -1,0 +1,29 @@
+{
+  "name": "sportradar-advanced-challenge",
+  "version": "1.0.0",
+  "description": "Data Pipeline using NHL Data",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fletch0098/sportradar-advanced-challenge.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "sql",
+    "data",
+    "pipeline",
+    "etl",
+    "nhl"
+  ],
+  "author": "brian.m.fletcher@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fletch0098/sportradar-advanced-challenge/issues"
+  },
+  "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme"
+}
