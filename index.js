@@ -12,6 +12,8 @@ const app = async () => {
   // Connect to the database, exit on error
   await sequelize.connect()
 
+  // TODO: Pipeline
+
   // Trace logging
   console.log(`${process.env.APP_NAME}: End`);
 };
