@@ -7,6 +7,7 @@ const { sequelize, Sequelize, Nhl } = require("../sequelize/models");
 const load = async (data, log = false) => {
 
   const response = await Nhl.bulkCreate(data, {
+    logging: false, // TODO: Why is this not global?
     fields: [
       "id",
       "gameId",
