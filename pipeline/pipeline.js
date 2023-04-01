@@ -13,7 +13,7 @@ const pipeline = async (gameId, log = false) => {
   const url = `/game/${gameId}/boxscore`
 
   const extractedData = await extract(url, log)
-  const transformedData = await transform(extractedData, log)
+  const transformedData = await transform({ gameId, gameData: extractedData}, log)
   await load(transformedData, log)
 
   // Trace logging
