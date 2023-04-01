@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "test"
+    "test": "test",
+    "db:create": "cross-env NODE_ENV=local sequelize db:create",
+    "db:migrate": "cross-env NODE_ENV=local sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   },
   "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "mysql2": "^3.2.0",
     "node-fetch": "^3.3.1",

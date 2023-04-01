@@ -1,7 +1,7 @@
 // extract.js - Extracting data
 
 // Imports
-const fetch = require("./node-fetch");
+const fetch = require("../utilities/node-fetch");
 
 // Extract data
 const extract = async (url, log = false) => {
