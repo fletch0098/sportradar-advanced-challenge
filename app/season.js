@@ -1,17 +1,17 @@
 // season.js - Run ETL Pipeline for all games in a season
 
 // Imports
-const fetch = require("./utilities/node-fetch");
+const { appSettings, nhl } = require('./config/vars')
+const fetch = require("./utilities/fetch");
 const pipeline = require("./pipeline/pipeline");
 
 // Run ETL Pipeline for all games in a season
 const season = async (season, log = false) => {
   // url all games from specified season
-  const fullUrl = `${process.env.NHL_BASE_URL}/schedule?season=${season}`;
+  const url = `/schedule?season=${season}`;
 
   // api call
-  const response = await fetch(fullUrl);
-  const data = await response.json();
+  const data = await fetch(url);
 
   // Initialize empty array of games
   const games = [];
@@ -24,7 +24,7 @@ const season = async (season, log = false) => {
   // Batch process all games
   while (games.length > 0) {
     // Batch size of defualt to 20
-    const batch = games.splice(0, process.env.BATCH_SIZE || 20);
+    const batch = games.splice(0, appSettings.batchSize);
     try {
       await Promise.all(
         batch.map(async (g) => {

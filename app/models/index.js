@@ -1,12 +1,13 @@
 'use strict';
 
+const { appSettings } = require('../config/vars')
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'local';
-const config = require('../config')[env];
+const env = appSettings.env;
+const config = require('../../sequelize/config')[env];
 const db = {};
 
 let sequelize;

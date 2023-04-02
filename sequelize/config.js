@@ -1,31 +1,31 @@
-require('dotenv').config()
+const { databaseSettings } = require("../app/config/vars");
 
 module.exports = {
   local: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: databaseSettings.user,
+    password: databaseSettings.password,
+    database: databaseSettings.name,
+    host: databaseSettings.host,
     port: 3306,
-    dialect: 'mysql',
-    dialectOptions: { }
+    dialect: "mysql",
+    dialectOptions: {},
   },
   test: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: databaseSettings.user,
+    password: databaseSettings.password,
+    database: databaseSettings.name,
+    host: databaseSettings.host,
     port: 3306,
-    dialect: 'mysql',
-    dialectOptions: { }
+    dialect: "mysql",
+    dialectOptions: {},
   },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: databaseSettings.user,
+    password: databaseSettings.password,
+    database: databaseSettings.name,
+    host: databaseSettings.host,
     port: 3306,
-    dialect: 'mysql',
-    dialectOptions: { }
-  }
+    dialect: "mysql",
+    dialectOptions: {},
+  },
 };

@@ -1,15 +1,16 @@
 // transform.js - Transform data
 
 // Imports
+const { constants } = require('../config/vars')
 
-const _parsePlayerObject = (playerObject, gameId, opponnetTeam) => {
+const _parsePlayerObject = (playerObject = {}, gameId, opponnetTeam) => {
   return Object.entries(playerObject).map(([key, value]) => {
 
     const person = value?.person
     const currentTeam = value?.person?.currentTeam
 
     const stats =
-     person?.primaryPosition?.name == "Goalie"
+     person?.primaryPosition?.name == constants.Goalie
         ? value?.stats?.goalieStats
         : value?.stats?.skaterStats;
 
@@ -41,10 +42,10 @@ const _parsePlayerObject = (playerObject, gameId, opponnetTeam) => {
 const transform = async (data, log = false) => {
   const gameId = data.gameId;
 
-  const homeTeam = data.gameData.teams.home.team.name;
-  const awayTeam = data.gameData.teams.away.team.name;
-  const homePlayersObject = data.gameData.teams.home.players;
-  const awayPlayersObject = data.gameData.teams.away.players;
+  const homeTeam = data.gameData?.teams?.home?.team?.name;
+  const awayTeam = data.gameData?.teams?.away?.team?.name;
+  const homePlayersObject = data.gameData?.teams?.home?.players;
+  const awayPlayersObject = data.gameData?.teams?.away?.players;
 
   const transformedData = [
     ..._parsePlayerObject(homePlayersObject, gameId, awayTeam),
