@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/fletch0098/sportradar-advanced-challenge#readme",
   "dependencies": {
+    "cron": "^2.3.0",
     "dotenv": "^16.0.3",
     "minimist": "^1.2.8",
     "mysql2": "^3.2.0",
