@@ -109,4 +109,6 @@ The newly loaded data is placed in a tabble named 'nhl' in the database.  It can
 ## Logs
 Logs can be found in the /logs folder.  When running in production there is no console log.
 
+## License
+
 [GNU](https://choosealicense.com/licenses/gpl-3.0/)
