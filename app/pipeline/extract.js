@@ -1,16 +1,13 @@
 // extract.js - Extracting data
 
 // Imports
-const fetch = require("../utilities/node-fetch");
+const fetch = require("../utilities/fetch");
 
 // Extract data
 const extract = async (url, log = false) => {
 
-    const fullUrl = `${process.env.NHL_BASE_URL}${url}`
-
   // api call
-  const response = await fetch(fullUrl);
-  const data = await response.json();
+  const data = await fetch(url);
 
   // Tract Logging
   if(log == true){

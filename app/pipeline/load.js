@@ -1,13 +1,14 @@
 // load.js - Load data
 
 // Imports
-const { sequelize, Sequelize, Nhl } = require("../sequelize/models");
+const { databaseSettings } = require('../config/vars')
+const { sequelize, Sequelize, Nhl } = require("../models");
 
 // Extract data
 const load = async (data, log = false) => {
 
   const response = await Nhl.bulkCreate(data, {
-    logging: false, // TODO: Why is this not global?
+    logging: databaseSettings.log, // TODO: Why is this not global?
     fields: [
       "id",
       "gameId",

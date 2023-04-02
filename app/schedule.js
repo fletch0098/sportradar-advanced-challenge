@@ -1,17 +1,15 @@
 // schedule.js - TODO: ?
 
 // Imports
-const fetch = require("./utilities/node-fetch");
-const pipeline = require("./pipeline/pipeline");
+const fetch = require("./utilities/fetch");
 
 // TODO: ?
 const schedule = async (log = false) => {
   // url all games from specified season
-  const fullUrl = `${process.env.NHL_BASE_URL}/schedule`;
+  const url = `/schedule`;
 
   // api call
-  const response = await fetch(fullUrl);
-  const data = await response.json();
+  const data = await fetch(url);
 
   // Initialize empty array of games
   const games = [];
