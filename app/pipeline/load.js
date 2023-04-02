@@ -3,9 +3,10 @@
 // Imports
 const { databaseSettings } = require('../config/vars')
 const { sequelize, Sequelize, Nhl } = require("../models");
+const logger = require("../utilities/logger");
 
-// Extract data
-const load = async (data, log = false) => {
+// Load data
+const load = async (data) => {
 
   const response = await Nhl.bulkCreate(data, {
     logging: databaseSettings.log, // TODO: Why is this not global?
@@ -29,10 +30,7 @@ const load = async (data, log = false) => {
     updateOnDuplicate: ["assists", "goals", "hits", "points", "penaltyMinutes"],
   });
 
-  // Tract Logging
-  if (log == true) {
-    console.log(response);
-  }
+  logger.debug(JSON.stringify(response), { app: 'load' })
 
   // Return
   return response;

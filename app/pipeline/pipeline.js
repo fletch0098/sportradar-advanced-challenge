@@ -4,20 +4,19 @@
 const extract = require("./extract");
 const transform = require("./transform");
 const load = require("./load");
+const logger = require("../utilities/logger");
 
 // Run Pipeline
-const pipeline = async (gameId, log = false) => {
-  // Trace logging
-  console.log(`Starting ETL Pipeline: ${gameId}`);
+const pipeline = async (gameId) => {
+  logger.info(`Starting ETL Pipeline for game: ${gameId}`, { app: 'pipeline' })
 
   const url = `/game/${gameId}/boxscore`
 
-  const extractedData = await extract(url, log)
-  const transformedData = await transform({ gameId, gameData: extractedData}, log)
-  await load(transformedData, log)
+  const extractedData = await extract(url)
+  const transformedData = await transform({ gameId, gameData: extractedData})
+  await load(transformedData)
 
-  // Trace logging
-  console.log(`ETL Pipeline Finished: ${gameId}`);
+  logger.info(`ETL Pipeline finished for game: ${gameId}`, { app: 'pipeline' })
 
   // Return
   return;

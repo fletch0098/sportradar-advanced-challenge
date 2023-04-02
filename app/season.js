@@ -3,10 +3,11 @@
 // Imports
 const { appSettings, nhl } = require('./config/vars')
 const fetch = require("./utilities/fetch");
+const logger = require("./utilities/logger");
 const pipeline = require("./pipeline/pipeline");
 
 // Run ETL Pipeline for all games in a season
-const season = async (season, log = false) => {
+const season = async (season) => {
   // url all games from specified season
   const url = `/schedule?season=${season}`;
 
@@ -25,18 +26,21 @@ const season = async (season, log = false) => {
   while (games.length > 0) {
     // Batch size of defualt to 20
     const batch = games.splice(0, appSettings.batchSize);
+
+    logger.debug(JSON.stringify(batch), { app: 'season' })
+
     try {
       await Promise.all(
         batch.map(async (g) => {
           try {
             await pipeline(g, false);
           } catch (err) {
-            console.log(err);
+            logger.warn(err, { app: 'season' })
           }
         })
       );
     } catch (err) {
-      console.log(err);
+      logger.warn(err, { app: 'season' })
     }
   }
 };

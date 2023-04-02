@@ -3,9 +3,10 @@
 // Imports
 const nodeFetch = require("../config/node-fetch");
 const { nhl } = require('../config/vars')
+const logger = require('./logger')
 
 // Fetch NHL data
-const fetch = async (url, log = false) => {
+const fetch = async (url) => {
 
    // full nhl url
    const fullUrl = `${nhl.baseUrl}${url}`;
@@ -14,9 +15,7 @@ const fetch = async (url, log = false) => {
    const response = await nodeFetch(fullUrl);
    const data = await response.json();
 
-   if(log == true){
-    console.log(data)
-   }
+   logger.debug(JSON.stringify(data), { app: 'fetch' })
 
    return data
 

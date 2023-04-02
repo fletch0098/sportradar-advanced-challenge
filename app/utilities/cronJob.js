@@ -2,10 +2,12 @@
 
 // Imports
 const CronJob = require("cron").CronJob;
+const logger = require('./logger')
 
 // Create Cron Jobs
 const cronJob = (name, expression, callback) => {
-  console.log(`Creating cron ${name}`);
+
+  logger.info(`Creating cron ${name}:${expression}`, { app: 'cronJob' })
 
   const start = true,
     runOnInit = true;

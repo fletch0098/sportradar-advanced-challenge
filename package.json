@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "debug": "cross-env LOG_LEVEL=debug node index.js",
     "test": "jest",
     "db:create": "cross-env NODE_ENV=local sequelize db:create",
     "db:migrate": "cross-env NODE_ENV=local sequelize db:migrate",
@@ -35,7 +36,8 @@
     "minimist": "^1.2.8",
     "mysql2": "^3.2.0",
     "node-fetch": "^3.3.1",
-    "sequelize": "^6.30.0"
+    "sequelize": "^6.30.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

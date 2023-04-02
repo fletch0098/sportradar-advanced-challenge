@@ -2,9 +2,10 @@
 
 // Imports
 const fetch = require("./utilities/fetch");
+const logger = require("./utilities/logger");
 
 // TODO: ?
-const schedule = async (log = false) => {
+const schedule = async () => {
   // url all games from specified season
   const url = `/schedule`;
 
@@ -24,10 +25,7 @@ const schedule = async (log = false) => {
     );
   });
 
-  // Trace Logging
-  if (log == true) {
-    console.log(games);
-  }
+  logger.debug(JSON.stringify(games), { app: 'schedule' })
 
   return games
 };

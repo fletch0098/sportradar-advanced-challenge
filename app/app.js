@@ -7,13 +7,13 @@ const pipeline = require("./pipeline/pipeline");
 const getArgs = require("./utilities/args");
 const runSeason = require("./season");
 const runMonitor = require("./monitor");
-const exit = require("./exit");
+const exit = require("./utilities/exit");
+const logger = require("./utilities/logger");
 
 // Application
 const app = async () => {
   try {
-    // Trace logging
-    console.log(`${appSettings.appName}: Start`);
+    logger.info(`${appSettings.appName}: Start`);
 
     // Connect to the database, exit on error
     await sequelizeConnect();
@@ -22,7 +22,7 @@ const app = async () => {
     const { gameId, season } = getArgs(process.argv);
 
     if (gameId) {
-      await pipeline(gameId, false);
+      await pipeline(gameId);
       exit(`${appSettings.appName}: End`, 0);
     } else if (season) {
       await runSeason(season);
@@ -31,8 +31,7 @@ const app = async () => {
       await runMonitor();
     }
   } catch (err) {
-    // Log Error
-    console.log(err);
+    logger.error(err);
 
     // Terminate
     exit(`${appSettings.appName}: Application terminated with an error`, 1);
