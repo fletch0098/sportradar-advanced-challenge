@@ -6,6 +6,7 @@ const sequelize = require("./sequelize/sequelize");
 const pipeline = require("./pipeline/pipeline");
 const getArgs = require("./utilities/args");
 const runSeason = require("./season");
+const runMonitor = require("./monitor");
 
 // App
 const app = async () => {
@@ -22,20 +23,24 @@ const app = async () => {
   try {
     if (gameId) {
       await pipeline(gameId, false);
+      // Trace logging
+      console.log(`${process.env.APP_NAME}: End`);
+
+      // Exit
+      process.exit(0);
     } else if (season) {
       await runSeason(season);
+      // Trace logging
+      console.log(`${process.env.APP_NAME}: End`);
+
+      // Exit
+      process.exit(0);
     } else {
-      // TODO: Monitor
+      await runMonitor();
     }
   } catch (err) {
     console.log(err);
   }
-
-  // Trace logging
-  console.log(`${process.env.APP_NAME}: End`);
-
-  // Exit
-  process.exit(0);
 };
 
 // Start the app

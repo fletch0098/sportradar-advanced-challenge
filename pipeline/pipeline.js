@@ -8,7 +8,7 @@ const load = require("./load");
 // Run Pipeline
 const pipeline = async (gameId, log = false) => {
   // Trace logging
-  console.log("Starting ETL Pipeline");
+  console.log(`Starting ETL Pipeline: ${gameId}`);
 
   const url = `/game/${gameId}/boxscore`
 
@@ -17,7 +17,7 @@ const pipeline = async (gameId, log = false) => {
   await load(transformedData, log)
 
   // Trace logging
-  console.log("ETL Pipeline Finished");
+  console.log(`ETL Pipeline Finished: ${gameId}`);
 
   // Return
   return;
