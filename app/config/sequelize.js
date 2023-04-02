@@ -2,6 +2,7 @@
 
 // Imports
 const { databaseSettings } = require("./vars");
+const logger = require('../utilities/logger')
 const Sequelize = require("sequelize");
 
 // Connect
@@ -20,7 +21,7 @@ const connect = async () => {
 
   // Connect
     await sequelize.authenticate();
-    console.log("Connection has been established successfully.");
+    logger.info('Connection has been established successfully.', { app: 'sequelize' })
 };
 
 module.exports = connect;

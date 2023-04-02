@@ -17,6 +17,9 @@ const vars = {
     host: process.env.DB_HOST || "localhost",
     log: process.env.DB_LOGGING == 'true',
   },
+  log: {
+    level: process.env.LOG_LEVEL || "info"
+  },
   nhl: {
     baseUrl: process.env.NHL_BASE_URL || "https://statsapi.web.nhl.com/api/v1",
   },

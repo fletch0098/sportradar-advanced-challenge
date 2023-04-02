@@ -2,17 +2,15 @@
 
 // Imports
 const fetch = require("../utilities/fetch");
+const logger = require("../utilities/logger");
 
 // Extract data
-const extract = async (url, log = false) => {
+const extract = async (url) => {
 
   // api call
   const data = await fetch(url);
 
-  // Tract Logging
-  if(log == true){
-    console.log(data);
-  }
+  logger.debug(JSON.stringify(data), { app: 'extract' })
 
   // Return
   return data;

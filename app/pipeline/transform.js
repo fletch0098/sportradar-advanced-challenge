@@ -2,6 +2,7 @@
 
 // Imports
 const { constants } = require('../config/vars')
+const logger = require("../utilities/logger");
 
 const _parsePlayerObject = (playerObject = {}, gameId, opponnetTeam) => {
   return Object.entries(playerObject).map(([key, value]) => {
@@ -39,7 +40,7 @@ const _parsePlayerObject = (playerObject = {}, gameId, opponnetTeam) => {
 };
 
 // Transform data
-const transform = async (data, log = false) => {
+const transform = async (data) => {
   const gameId = data.gameId;
 
   const homeTeam = data.gameData?.teams?.home?.team?.name;
@@ -72,10 +73,7 @@ const transform = async (data, log = false) => {
 
   // const transformedData = require("../mock/transformedData.json");
 
-  // Tract Logging
-  if (log == true) {
-    console.log(transformedData);
-  }
+  logger.debug(JSON.stringify(transformedData), { app: 'transform' })
 
   // Return
   return transformedData;
