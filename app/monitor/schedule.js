@@ -25,6 +25,8 @@ const schedule = async () => {
     );
   });
 
+  logger.info(`${games.length} Games found on the schedule`, { app: 'schedule' })
+
   logger.debug(JSON.stringify(games), { app: 'schedule' })
 
   return games

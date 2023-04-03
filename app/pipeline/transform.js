@@ -56,6 +56,8 @@ const transform = (data) => {
     ...parsePlayerObject(awayPlayersObject, gameId, homeTeam),
   ];
 
+  logger.info(`${transformedData.length} Results transformed`, { app: 'transform' })
+
   logger.debug(JSON.stringify(transformedData), { app: 'transform' })
 
   // Return

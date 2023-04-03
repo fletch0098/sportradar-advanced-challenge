@@ -1,7 +1,7 @@
 // season.js - Run ETL Pipeline for all games in a season
 
 // Imports
-const { appSettings, nhl } = require('../config/vars')
+const { appSettings } = require('../config/vars')
 const fetch = require("../utilities/fetch");
 const logger = require("../utilities/logger");
 const pipeline = require("../pipeline/pipeline");
@@ -21,6 +21,8 @@ const season = async (season) => {
   data?.dates?.map((d) => {
     d?.games?.map((g) => games.push(g?.gamePk?.toString()));
   });
+
+  logger.info(`${games.length} Games found in this season to process`, { app: 'season' })
 
   // Batch process all games
   while (games.length > 0) {

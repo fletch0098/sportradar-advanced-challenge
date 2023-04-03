@@ -33,6 +33,10 @@ const load = async (data) => {
     updateOnDuplicate: ["assists", "goals", "hits", "points", "penaltyMinutes"],
   });
 
+  const inserted = response && response.length || 0
+
+  logger.info(`${inserted} Loaded into the database`, { app: "load" });
+
   logger.debug(JSON.stringify(response), { app: "load" });
 
   // Return
