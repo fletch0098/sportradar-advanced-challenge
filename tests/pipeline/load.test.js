@@ -8,11 +8,14 @@ jest.mock("../../app/models", () => ({
     },
   },
 }));
+describe("Load module", () => {
+  test("should load data", async () => {
+    expect(await load([])).toStrictEqual({});
+  });
 
-test("should load data", async () => {
-  expect(await load([])).toStrictEqual({});
-});
-
-test("should throw load error", async () => {
-  await expect(load()).rejects.toThrow("Error: Data must be an array to load");
+  test("should throw load error", async () => {
+    await expect(load()).rejects.toThrow(
+      "Error: Data must be an array to load"
+    );
+  });
 });

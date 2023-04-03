@@ -1,29 +1,31 @@
-
-const fetch = require('../../app/utilities/fetch')
-const nodeFetch = require('../../app/config/node-fetch')
-
+const fetch = require("../../app/utilities/fetch");
+const nodeFetch = require("../../app/config/node-fetch");
 
 const response = {
-    ok: true,
-    json: () => {return {}}
-}
+  ok: true,
+  json: () => {
+    return {};
+  },
+};
 
 const failedResponse = {
-    ok: false,
-    status: 404,
-    statusText: 'Not Found',
-    // json: () => {return {}}
-}
+  ok: false,
+  status: 404,
+  statusText: "Not Found",
+};
 
-// The mock factory returns the function () => false
 jest.mock("../../app/config/node-fetch", () => jest.fn());
 
-test('should fetch using node-fetch', async () => {
+describe("Fetch module", () => {
+  test("should fetch using node-fetch", async () => {
     nodeFetch.mockImplementation(() => response);
-    expect(await fetch('')).toStrictEqual({});
+    expect(await fetch("")).toStrictEqual({});
   });
 
-  test('should fetch using node-fetch', async () => {
+  test("should fetch using node-fetch", async () => {
     nodeFetch.mockImplementation(() => failedResponse);
-    await expect(fetch()).rejects.toThrow("Unexpected Error when fetching NHL data. status: 404 text: Not Found");
+    await expect(fetch()).rejects.toThrow(
+      "Unexpected Error when fetching NHL data. status: 404 text: Not Found"
+    );
   });
+});

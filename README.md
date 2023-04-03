@@ -114,7 +114,6 @@ Some possible oppurtunities for enhacement in the future could be:
 * Transform - Could data be parsed and transformed better?
 * Database schema - Mold to how it will be consumed
 * Increase testing coverage, currently 79%
-* Silence logger during tests
 
 ## Logs
 Logs can be found in the /logs folder.  When running in production there is no console log.

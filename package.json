@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "debug": "cross-env LOG_LEVEL=debug node index.js",
-    "test": "jest",
+    "test": "cross-env LOG_LEVEL= jest",
     "db:create": "cross-env NODE_ENV=local sequelize db:create",
     "db:migrate": "cross-env NODE_ENV=local sequelize db:migrate",
     "db:up": "npm run db:create && npm run db:migrate"

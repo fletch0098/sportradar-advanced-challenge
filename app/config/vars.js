@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const vars = {
   appSettings: {
-    env: process.env.ENV || "local",
+    env: process.env.NODE_ENV || "local",
     appName: process.env.APP_NAME || "sportradar-advanced-challenge",
     batchSize: process.env.BATCH_SIZE || 20,
     cronMonitorExpression: process.env.CRON_MONITOR_EXPRESSION || "* * * * *",
