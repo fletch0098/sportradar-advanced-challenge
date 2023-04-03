@@ -1,8 +1,9 @@
-
-const schedule = require('../../app/monitor/schedule')
+const schedule = require("../../app/monitor/schedule");
 
 jest.mock("../../app/utilities/fetch", () => () => {});
 
-test('should fetch schedule data', async () => {
-    expect(await schedule('')).toStrictEqual([]);
+describe("Schedule module", () => {
+  test("should fetch schedule data", async () => {
+    expect(await schedule("")).toStrictEqual([]);
   });
+});

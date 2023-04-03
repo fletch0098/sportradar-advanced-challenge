@@ -6,6 +6,8 @@ jest.mock("../../app/pipeline/transform", () => ({
   transform: () => {},
 }));
 
-test("should run pipeline", async () => {
-  expect(await pipeline("")).toBe();
+describe("Pipeline module", () => {
+  test("should run pipeline", async () => {
+    expect(await pipeline("")).toBe();
+  });
 });

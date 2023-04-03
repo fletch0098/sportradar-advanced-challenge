@@ -1,8 +1,9 @@
-
-const monitor = require('../../app/monitor/monitor')
+const monitor = require("../../app/monitor/monitor");
 
 jest.mock("../../app/utilities/cronJob", () => () => {});
 
-test('should monitor', async () => {
+describe("Monitor module", () => {
+  test("should monitor", async () => {
     expect(await monitor()).toStrictEqual();
   });
+});
