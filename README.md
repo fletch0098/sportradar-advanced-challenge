@@ -33,7 +33,7 @@ npm run db:up
 
 The apps settings all have defaults with no sensitive data, but if you wish to modify them create a .env from the .env.example.
 
-* ENV="local"
+* NODE_ENV="local"
 * APP_NAME="sportradar-advanced-challenge"
 * DB_NAME="sportsradar_db"
 * DB_USER="root"
