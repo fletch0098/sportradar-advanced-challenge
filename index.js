@@ -4,4 +4,4 @@
 const app = require('./app/app')
 
 // Start the app
-app();
+app(process.argv[2]);

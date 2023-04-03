@@ -1,10 +1,10 @@
 // season.js - Run ETL Pipeline for all games in a season
 
 // Imports
-const { appSettings, nhl } = require('./config/vars')
-const fetch = require("./utilities/fetch");
-const logger = require("./utilities/logger");
-const pipeline = require("./pipeline/pipeline");
+const { appSettings, nhl } = require('../config/vars')
+const fetch = require("../utilities/fetch");
+const logger = require("../utilities/logger");
+const pipeline = require("../pipeline/pipeline");
 
 // Run ETL Pipeline for all games in a season
 const season = async (season) => {

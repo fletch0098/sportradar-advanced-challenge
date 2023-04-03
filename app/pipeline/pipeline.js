@@ -2,7 +2,7 @@
 
 // Imports
 const extract = require("./extract");
-const transform = require("./transform");
+const { transform } = require("./transform");
 const load = require("./load");
 const logger = require("../utilities/logger");
 
@@ -13,7 +13,7 @@ const pipeline = async (gameId) => {
   const url = `/game/${gameId}/boxscore`
 
   const extractedData = await extract(url)
-  const transformedData = await transform({ gameId, gameData: extractedData})
+  const transformedData = transform({ gameId, gameData: extractedData})
   await load(transformedData)
 
   logger.info(`ETL Pipeline finished for game: ${gameId}`, { app: 'pipeline' })

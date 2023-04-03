@@ -87,22 +87,24 @@ npm run debug
 
 ## Data
 
-The newly loaded data is placed in a tabble named 'nhl' in the database.  It can be queried at any time, and since the data is upserted, it is always up to date and acurate according to the refresh schedule.  Its structure is:
+The newly loaded data is placed in a tabble named 'nhl' in the database.  It can be queried at any time, and since the data is upserted, it is always up to date and acurate according to the refresh schedule. Below is its structure and how it was transformed.
 
-* id - GameIdPlayerId
-* Player ID
-* Player Name
-* Team ID
-* Team Name
-* Player Age
-* Player Number
-* Player Position
-* Assists
-* Goals
-* Hits
-* Points
-* Penalty Minutes
-* Opponent Team
+  * player - teams.away/home.players
+  * id - GameIdPlayerId
+  * gameId - GameId
+  * playerId - player.person.id
+  * playerName - player.person.fullName
+  * teamId - player.person.currentTeam.id
+  * teamName - player.person.currentTeam.name
+  * playerAge - player.person.currentAge
+  * playerNumber - player.person.primaryNumber
+  * playerPosition - player.person.primaryPosition.name
+  * assists - player.stats.skaterStats/goalieStats.assists
+  * goals - player.stats.skaterStats/goalieStats.goals
+  * hits - player.stats.skaterStats/goalieStats.hits
+  * points - player.stats.skaterStats/goalieStats.goals + id.stats.skaterStats/goalieStats.assists
+  * penaltyMinutes - player.stats.skaterStats/goalieStats.penaltyMinutes
+  * opponnetTeam - teams.away/home.team.name
 
 ## License
 
