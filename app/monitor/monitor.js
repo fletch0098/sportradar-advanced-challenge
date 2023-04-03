@@ -1,11 +1,11 @@
 // monitor.js - Monitor games in realtime
 
 // Imports
-const { appSettings, constants } = require("./config/vars");
-const cronJob = require("./utilities/cronJob");
-const pipeline = require("./pipeline/pipeline");
+const { appSettings, constants } = require("../config/vars");
+const cronJob = require("../utilities/cronJob");
+const pipeline = require("../pipeline/pipeline");
 const schedule = require("./schedule");
-const logger = require("./utilities/logger");
+const logger = require("../utilities/logger");
 
 // Initialize games
 const games = [];

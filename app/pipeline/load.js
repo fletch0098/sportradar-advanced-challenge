@@ -1,12 +1,15 @@
 // load.js - Load data
 
 // Imports
-const { databaseSettings } = require('../config/vars')
+const { databaseSettings } = require("../config/vars");
 const { sequelize, Sequelize, Nhl } = require("../models");
 const logger = require("../utilities/logger");
 
 // Load data
 const load = async (data) => {
+  if (!Array.isArray(data)) {
+    throw Error("Error: Data must be an array to load");
+  }
 
   const response = await Nhl.bulkCreate(data, {
     logging: databaseSettings.log, // TODO: Why is this not global?
@@ -30,7 +33,7 @@ const load = async (data) => {
     updateOnDuplicate: ["assists", "goals", "hits", "points", "penaltyMinutes"],
   });
 
-  logger.debug(JSON.stringify(response), { app: 'load' })
+  logger.debug(JSON.stringify(response), { app: "load" });
 
   // Return
   return response;

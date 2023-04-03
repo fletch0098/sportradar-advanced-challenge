@@ -1,4 +1,4 @@
-const cronJob = require("../app/utilities/cronJob");
+const cronJob = require("../../app/utilities/cronJob");
 
 test("should create cron", () => {
   const myCron = cronJob("test", "* * * * * *", () => {

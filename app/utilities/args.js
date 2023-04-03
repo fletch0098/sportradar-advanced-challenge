@@ -4,12 +4,9 @@
 const { constants } = require("../config/vars");
 
 // Command line args parser
-const parseArgs = (argv) => {
+const parseArgs = (arg) => {
   // Initialize
   let gameId, season;
-
-  // Parse first command line argument
-  const arg = argv[2];
 
   if (arg) {
     // Split into name and value

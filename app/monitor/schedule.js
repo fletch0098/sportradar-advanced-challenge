@@ -1,8 +1,8 @@
 // schedule.js - TODO: ?
 
 // Imports
-const fetch = require("./utilities/fetch");
-const logger = require("./utilities/logger");
+const fetch = require("../utilities/fetch");
+const logger = require("../utilities/logger");
 
 // TODO: ?
 const schedule = async () => {
