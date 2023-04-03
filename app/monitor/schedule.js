@@ -1,10 +1,10 @@
-// schedule.js - TODO: ?
+// schedule.js - Fetch the schedule for a day
 
 // Imports
 const fetch = require("../utilities/fetch");
 const logger = require("../utilities/logger");
 
-// TODO: ?
+// Fetch the schedule for a day
 const schedule = async () => {
   // url all games from specified season
   const url = `/schedule`;
