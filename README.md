@@ -47,7 +47,7 @@ The apps settings all have defaults with no sensitive data, but if you wish to m
 
 ## Game Execution Mode
 
-Game execution mode loads data for one game specified on the command line argument 'game:xxxxxxxxxx' 
+Game execution mode loads data for one game specified on the command line argument 'game:xxxxxxxxxx'.  If the game is not found, or the pipeline error, the app will exit with an error.
 
 ```bash
 npm start game:2022021206
@@ -60,7 +60,7 @@ npm run debug game:2022021206
 
 ## Season Execution Mode
 
-Season execution mode loads data for all games in a season specified on the command line argument 'season:xxxxxxxx' 
+Season execution mode loads data for all games in a season specified on the command line argument 'season:xxxxxxxx'. 
 
 ```bash
 npm start season:20212022
@@ -106,7 +106,15 @@ The newly loaded data is placed in a tabble named 'nhl' in the database.  It can
   * penaltyMinutes - player.stats.skaterStats/goalieStats.penaltyMinutes
   * opponnetTeam - teams.away/home.team.name
 
-## License
+## Roadmap
+
+Some possible oppurtunities for enhacement in the future could be:
+
+* Extract - NHL data validation
+* Transform - Could data be parsed and transformed better?
+* Database schema - Mold to how it will be consumed
+* Increase testing coverage, currently 79%
+* Silence logger during tests
 
 ## Logs
 Logs can be found in the /logs folder.  When running in production there is no console log.
